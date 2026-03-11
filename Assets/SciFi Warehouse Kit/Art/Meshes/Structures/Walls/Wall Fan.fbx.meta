@@ -1,59 +1,11 @@
 fileFormatVersion: 2
-guid: 3a8384e20c816134c8d4a4d359d33c29
+guid: 9d67b204eeb86694994db2f6f807d6f1
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: Bone002
-    100002: Bone003
-    100004: BoneRoot
-    100006: LP_vent_fan_snaps
-    100008: LP_vent_guard_snaps
-    100010: LP_vent_rotor_snaps
-    100012: LP_vent_wall_snaps
-    100014: //RootNode
-    400000: Bone002
-    400002: Bone003
-    400004: BoneRoot
-    400006: LP_vent_fan_snaps
-    400008: LP_vent_guard_snaps
-    400010: LP_vent_rotor_snaps
-    400012: LP_vent_wall_snaps
-    400014: //RootNode
-    2300000: LP_vent_fan_snaps
-    2300002: LP_vent_guard_snaps
-    2300004: LP_vent_wall_snaps
-    3300000: LP_vent_fan_snaps
-    3300002: LP_vent_guard_snaps
-    3300004: LP_vent_wall_snaps
-    4300000: LP_vent_guard_snaps
-    4300002: LP_vent_fan_snaps
-    4300004: LP_vent_wall_snaps
-    4300006: LP_vent_rotor_snaps
-    6400000: LP_vent_fan_snaps
-    6400002: LP_vent_guard_snaps
-    6400004: LP_vent_wall_snaps
-    7400000: Vent_Rotation
-    11100000: //RootNode
-    13700000: LP_vent_rotor_snaps
-    2186277476908879412: ImportLogs
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: SciFi_Vent_fan
-    second: {fileID: 2100000, guid: f2506252823082947ac9c5bd934e0ba4, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: SciFi_vent_fan_Transparent
-    second: {fileID: 2100000, guid: a9460b9bd02e92549826c6b8a736db94, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: SciFi_walls
-    second: {fileID: 2100000, guid: d893f707bc253a84aa1e7d87361c830a, type: 2}
+  serializedVersion: 24200
+  internalIDToNameTable: []
+  externalObjects: {}
   materials:
-    importMaterials: 1
+    materialImportMode: 2
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -62,9 +14,8 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
-    rigImportErrors: 
-    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -75,64 +26,50 @@ ModelImporter:
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
-    animationWrapMode: 2
+    animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: Vent_Rotation
-      takeName: Vent_Rotation
-      firstFrame: 0
-      lastFrame: 200
-      wrapMode: 2
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 1
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 1
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+    clipAnimations: []
     isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    generateMeshLods: 0
+    meshLodGenerationFlags: 0
+    maximumMeshLod: -1
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
+    strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -141,10 +78,10 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -154,21 +91,20 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 1
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
   humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 159280
-  packageName: Sci-Fi Construction Kit (Modular)
-  packageVersion: 1.1.0
-  assetPath: Assets/SciFi Warehouse Kit/Art/Meshes/Structures/Walls/Wall Fan.fbx
-  uploadId: 373385
