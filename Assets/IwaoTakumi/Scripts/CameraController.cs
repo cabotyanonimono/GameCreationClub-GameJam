@@ -41,15 +41,15 @@ public class CameraController : MonoBehaviour {
     void Update()
     {
         // 左クリックでFPS視点
-        bool isFPS = Mouse.current.leftButton.isPressed;
+        bool isPressLeftButton = Mouse.current.leftButton.isPressed;
 
         // マウス入力
         Vector2 mouseDelta = Mouse.current.delta.ReadValue();
         float mouseX = mouseDelta.x * MouseSensitivity * Time.deltaTime;
         float mouseY = mouseDelta.y * MouseSensitivity * Time.deltaTime;
 
-        // FPS視点中は上下回転を固定
-        if (!isFPS)
+        // 左クリック中は上下回転を固定
+        if (!isPressLeftButton)
         {
             Rotation_X -= mouseY;   // 上下
             Rotation_X = Mathf.Clamp(Rotation_X, -30f, 60f);
@@ -62,16 +62,16 @@ public class CameraController : MonoBehaviour {
         // 回転
         Quaternion rotation = Quaternion.Euler(Rotation_X, Rotation_Y, 0);
 
-        if (isFPS)
-        {
-            distance = Mathf.Lerp(distance, 0, Time.deltaTime * LerpSpeed);
+        //if (isFPS)
+        //{
+        //    distance = Mathf.Lerp(distance, 0, Time.deltaTime * LerpSpeed);
 
-            Vector3 fpsPosition = _target.position;
-            _camera.transform.position = fpsPosition;
-            _camera.transform.rotation = rotation; // LookAtではなく回転を直接設定
-        }
-        else
-        {
+        //    Vector3 fpsPosition = _target.position;
+        //    _camera.transform.position = fpsPosition;
+        //    _camera.transform.rotation = rotation; // LookAtではなく回転を直接設定
+        //}
+        //else
+        //{
             // TPS視点
 
             distance = Mathf.Lerp(distance, distanceOffset, Time.deltaTime * LerpSpeed);
@@ -93,6 +93,6 @@ public class CameraController : MonoBehaviour {
 
             _camera.transform.position = position;
             _camera.transform.LookAt(targetPosition);
-        }
+        //}
     }
 }

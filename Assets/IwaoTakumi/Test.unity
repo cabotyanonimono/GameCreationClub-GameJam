@@ -119,6 +119,94 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &667871623 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3044768061354514016, guid: b9d2bba28d0413c4eb3fb345aa7d3035, type: 3}
+  m_PrefabInstance: {fileID: 5984331220086871802}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &667871628
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667871623}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!1 &1533170976 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1142461026276787, guid: ab4ad652df4d79942a73c91387b92a22, type: 3}
+  m_PrefabInstance: {fileID: 938494025884583422}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1533170977 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5982020471148792519, guid: ab4ad652df4d79942a73c91387b92a22, type: 3}
+  m_PrefabInstance: {fileID: 938494025884583422}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1533170981
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533170976}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1533170982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533170976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 103f434b08a41f74b97cdf08d1c44a08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerContoroller
+  _player: {fileID: 1533170977}
+  _camera: {fileID: 1824106063}
+  power: 10
+  startMousePosY: 0
+  endMousePosY: 0
+  drag: 0
+  isStop: 0
 --- !u!1 &1824106060
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,6 +219,7 @@ GameObject:
   - component: {fileID: 1824106062}
   - component: {fileID: 1824106061}
   - component: {fileID: 1824106064}
+  - component: {fileID: 1824106065}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -205,7 +294,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1824106060}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -256,6 +345,28 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &1824106065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824106060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e05c21519080e084d98e87608d7594c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraController
+  _camera: {fileID: 1824106062}
+  _target: {fileID: 1533170977}
+  HeightOffset: 2
+  distanceOffset: 10
+  distance: 0
+  LerpSpeed: 5
+  Rotation_X: 0
+  Rotation_Y: 0
+  MouseSensitivity: 100
+  CameraRadius: 0.5
 --- !u!1 &1983129330
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,7 +549,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1142461026276787, guid: ab4ad652df4d79942a73c91387b92a22, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1533170981}
+    - targetCorrespondingSourceObject: {fileID: 1142461026276787, guid: ab4ad652df4d79942a73c91387b92a22, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1533170982}
   m_SourcePrefab: {fileID: 100100000, guid: ab4ad652df4d79942a73c91387b92a22, type: 3}
 --- !u!1001 &5984331220086871802
 PrefabInstance:
@@ -451,6 +568,14 @@ PrefabInstance:
     - target: {fileID: 3044768061354514016, guid: b9d2bba28d0413c4eb3fb345aa7d3035, type: 3}
       propertyPath: m_Name
       value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975186655126129194, guid: b9d2bba28d0413c4eb3fb345aa7d3035, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975186655126129194, guid: b9d2bba28d0413c4eb3fb345aa7d3035, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3975186655126129194, guid: b9d2bba28d0413c4eb3fb345aa7d3035, type: 3}
       propertyPath: m_LocalPosition.x
@@ -495,13 +620,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3044768061354514016, guid: b9d2bba28d0413c4eb3fb345aa7d3035, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 667871628}
   m_SourcePrefab: {fileID: 100100000, guid: b9d2bba28d0413c4eb3fb345aa7d3035, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1824106063}
   - {fileID: 1983129332}
   - {fileID: 938494025884583422}
   - {fileID: 5984331220086871802}
+  - {fileID: 1824106063}

@@ -13,7 +13,7 @@ public class PlayerContoroller : MonoBehaviour
     float power;
 
     [SerializeField]
-    float startMousePosY;
+    float dragPower;
 
     [SerializeField]
     float endMousePosY;
@@ -35,24 +35,22 @@ public class PlayerContoroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 mouseDelta = Mouse.current.position.ReadValue();
+        Vector2 mouseDelta = Mouse.current.delta.ReadValue();
 
-        // マウス押した
-        if (Mouse.current.leftButton.wasPressedThisFrame)
+        if(Mouse.current.leftButton.isPressed)
         {
-            startMousePosY = mouseDelta.y;
+            dragPower -= mouseDelta.y;
         }
 
         // マウス離した
         if(Mouse.current.leftButton.wasReleasedThisFrame)
         {
-            endMousePosY = mouseDelta.y;
-
-            drag = endMousePosY - startMousePosY;
-
             Vector3 direction = _camera.forward;
 
-            rb.AddForce(direction * drag * power);
+            if (dragPower > 0)
+            {
+                rb.AddForce(direction * dragPower * power);
+            }
         }
     }
 }
