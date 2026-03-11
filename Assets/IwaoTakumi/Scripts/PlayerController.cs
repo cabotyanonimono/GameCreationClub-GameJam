@@ -16,12 +16,6 @@ public class PlayerContoroller : MonoBehaviour
     float dragPower;
 
     [SerializeField]
-    float endMousePosY;
-
-    [SerializeField]
-    float drag;
-
-    [SerializeField]
     bool isStop;
 
     Rigidbody rb;

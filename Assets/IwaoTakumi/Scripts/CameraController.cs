@@ -1,7 +1,8 @@
 using UnityEngine.InputSystem;
 using UnityEngine;
 
-public class CameraController : MonoBehaviour {
+public class CameraController : MonoBehaviour
+{
 
     [SerializeField]
     private Camera _camera;
@@ -14,12 +15,6 @@ public class CameraController : MonoBehaviour {
 
     [SerializeField]
     private float distanceOffset = 10.0f;  // プレイヤーとの距離
-
-    [SerializeField]
-    private float distance;
-
-    [SerializeField]
-    private float LerpSpeed;
 
     [SerializeField]
     private float Rotation_X = 0;
@@ -62,37 +57,22 @@ public class CameraController : MonoBehaviour {
         // 回転
         Quaternion rotation = Quaternion.Euler(Rotation_X, Rotation_Y, 0);
 
-        //if (isFPS)
-        //{
-        //    distance = Mathf.Lerp(distance, 0, Time.deltaTime * LerpSpeed);
+        // カメラ位置
+        Vector3 position = _target.position - rotation * new Vector3(0, 0, distanceOffset);
 
-        //    Vector3 fpsPosition = _target.position;
-        //    _camera.transform.position = fpsPosition;
-        //    _camera.transform.rotation = rotation; // LookAtではなく回転を直接設定
-        //}
-        //else
-        //{
-            // TPS視点
+        // 注視点の高さを加算
+        Vector3 targetPosition = _target.position;
+        targetPosition.y += HeightOffset;
 
-            distance = Mathf.Lerp(distance, distanceOffset, Time.deltaTime * LerpSpeed);
+        RaycastHit hit;
+        Vector3 dir = position - targetPosition;
+        float dist = dir.magnitude;
+        if (Physics.SphereCast(targetPosition, CameraRadius, dir.normalized, out hit, dist))
+        {
+            position = hit.point - dir.normalized * 0.1f;
+        }
 
-            // カメラ位置
-            Vector3 position = _target.position - rotation * new Vector3(0, 0, distance);
-
-            // 注視点の高さを加算
-            Vector3 targetPosition = _target.position;
-            targetPosition.y += HeightOffset;
-
-            RaycastHit hit;
-            Vector3 dir = position - targetPosition;
-            float dist = dir.magnitude;
-            if(Physics.SphereCast(targetPosition,CameraRadius,dir.normalized,out hit,dist))
-            {
-                position = hit.point - dir.normalized * 0.1f;
-            }
-
-            _camera.transform.position = position;
-            _camera.transform.LookAt(targetPosition);
-        //}
+        _camera.transform.position = position;
+        _camera.transform.LookAt(targetPosition);
     }
 }
