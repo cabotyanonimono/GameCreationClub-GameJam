@@ -1,35 +1,34 @@
+using Unity.Mathematics.Geometry;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 
 public class PlayerContoroller : MonoBehaviour
 {
-    [SerializeField]
-    Transform _player;
+    [SerializeField] public Transform _player;
 
-    [SerializeField]
-    Transform _camera;
+    [SerializeField] public Transform _camera;
 
-    [SerializeField]
-    float power;
+    [SerializeField] public float power;
 
-    [SerializeField]
-    float dragPower;
+    [SerializeField] public float max_speed;
 
-    [SerializeField]
-    float endMousePosY;
+    [SerializeField] public float movement_threshold;
 
-    [SerializeField]
-    float drag;
+    [SerializeField] public float dragPower;
 
-    [SerializeField]
-    bool isStop;
+    [SerializeField] public float endMousePosY;
+
+    [SerializeField] public float drag;
+
+    [SerializeField] public bool isStop;
 
     Rigidbody rb;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rb  = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -37,13 +36,14 @@ public class PlayerContoroller : MonoBehaviour
     {
         Vector2 mouseDelta = Mouse.current.delta.ReadValue();
 
-        if(Mouse.current.leftButton.isPressed)
+        if (IsDragging())
         {
             dragPower -= mouseDelta.y;
+            Mathf.Max(dragPower, 0.0f);
         }
 
-        // ƒ}ƒEƒX—£‚µ‚½
-        if(Mouse.current.leftButton.wasReleasedThisFrame)
+        // ï¿½}ï¿½Eï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        if (Mouse.current.leftButton.wasReleasedThisFrame)
         {
             Vector3 direction = _camera.forward;
 
@@ -51,6 +51,26 @@ public class PlayerContoroller : MonoBehaviour
             {
                 rb.AddForce(direction * dragPower * power);
             }
+
+            dragPower = 0;
         }
+    }
+
+    public Vector3 GetForce()
+    {
+        Vector3 direction = _camera.forward;
+
+        if (dragPower > 0)
+        {
+            dragPower = Mathf.Min(dragPower, max_speed);
+            return direction * dragPower * power;
+        }
+
+        return Vector3.zero;
+    }
+
+    public bool IsDragging()
+    {
+        return Mouse.current.leftButton.isPressed && rb.linearVelocity.magnitude <= movement_threshold;
     }
 }
