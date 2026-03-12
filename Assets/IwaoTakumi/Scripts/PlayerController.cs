@@ -4,25 +4,25 @@ using UnityEngine.InputSystem;
 public class PlayerContoroller : MonoBehaviour
 {
     [SerializeField]
-    Transform _player;
+    public Transform _player;
 
     [SerializeField]
-    Transform _camera;
+    public Transform _camera;
 
     [SerializeField]
-    float power;
+    public float power;
 
     [SerializeField]
-    float dragPower;
+    public float dragPower;
 
     [SerializeField]
-    float endMousePosY;
+    public float endMousePosY;
 
     [SerializeField]
-    float drag;
+    public float drag;
 
     [SerializeField]
-    bool isStop;
+    public bool isStop;
 
     Rigidbody rb;
 
@@ -42,7 +42,7 @@ public class PlayerContoroller : MonoBehaviour
             dragPower -= mouseDelta.y;
         }
 
-        // ƒ}ƒEƒX—£‚µ‚½
+        // ï¿½}ï¿½Eï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         if(Mouse.current.leftButton.wasReleasedThisFrame)
         {
             Vector3 direction = _camera.forward;
@@ -51,6 +51,20 @@ public class PlayerContoroller : MonoBehaviour
             {
                 rb.AddForce(direction * dragPower * power);
             }
+
+            dragPower = 0;
         }
+    }
+
+    public Vector3 GetForce()
+    {
+        Vector3 direction = _camera.forward;
+
+        if (dragPower > 0)
+        {
+            return direction * dragPower * power;
+        }
+
+        return Vector3.zero;
     }
 }
