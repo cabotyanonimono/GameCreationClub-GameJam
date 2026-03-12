@@ -1,37 +1,25 @@
 using UnityEngine.InputSystem;
 using UnityEngine;
 
-public class CameraController : MonoBehaviour {
+public class CameraController : MonoBehaviour
+{
+    [SerializeField] private Camera _camera;
 
-    [SerializeField]
-    private Camera _camera;
+    [SerializeField] private Transform _target; // ï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½iï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½j
 
-    [SerializeField]
-    private Transform _target;  // ’‹“_iƒvƒŒƒCƒ„[j
+    [SerializeField] private float HeightOffset = 2.0f; // ï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½Ìï¿½ï¿½ï¿½
 
-    [SerializeField]
-    private float HeightOffset = 2.0f;  // ’‹“_‚Ì‚‚³
+    [SerializeField] private float distance;
 
-    [SerializeField]
-    private float distanceOffset = 10.0f;  // ƒvƒŒƒCƒ„[‚Æ‚Ì‹——£
+    [SerializeField] private float LerpSpeed;
 
-    [SerializeField]
-    private float distance;
+    [SerializeField] private float Rotation_X = 0;
 
-    [SerializeField]
-    private float LerpSpeed;
+    [SerializeField] private float Rotation_Y = 0;
 
-    [SerializeField]
-    private float Rotation_X = 0;
+    [SerializeField] private float MouseSensitivity = 200.0f; // ï¿½}ï¿½Eï¿½Xï¿½ï¿½ï¿½x
 
-    [SerializeField]
-    private float Rotation_Y = 0;
-
-    [SerializeField]
-    private float MouseSensitivity = 200.0f;    // ƒ}ƒEƒXŠ´“x
-
-    [SerializeField]
-    private float CameraRadius = 0.5f;  // ƒJƒƒ‰‚Ì”¼Œa
+    [SerializeField] private float CameraRadius = 0.5f; // ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½Ì”ï¿½ï¿½a
 
     void Start()
     {
@@ -40,59 +28,45 @@ public class CameraController : MonoBehaviour {
 
     void Update()
     {
-        // ¶ƒNƒŠƒbƒN‚ÅFPS‹“_
+        // ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½FPSï¿½ï¿½ï¿½_
         bool isPressLeftButton = Mouse.current.leftButton.isPressed;
 
-        // ƒ}ƒEƒX“ü—Í
+        // ï¿½}ï¿½Eï¿½Xï¿½ï¿½ï¿½ï¿½
         Vector2 mouseDelta = Mouse.current.delta.ReadValue();
         float mouseX = mouseDelta.x * MouseSensitivity * Time.deltaTime;
         float mouseY = mouseDelta.y * MouseSensitivity * Time.deltaTime;
 
-        // ¶ƒNƒŠƒbƒN’†‚Íã‰º‰ñ“]‚ğŒÅ’è
+        // ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½Íã‰ºï¿½ï¿½]ï¿½ï¿½ï¿½Å’ï¿½
         if (!isPressLeftButton)
         {
-            Rotation_X -= mouseY;   // ã‰º
+            Rotation_X -= mouseY; // ï¿½ã‰º
             Rotation_X = Mathf.Clamp(Rotation_X, -30f, 60f);
         }
 
-        Rotation_Y += mouseX;   // ¶‰E
+        Rotation_Y += mouseX; // ï¿½ï¿½ï¿½E
 
         Rotation_X = Mathf.Clamp(Rotation_X, -30f, 60f);
 
-        // ‰ñ“]
+        // ï¿½ï¿½]
         Quaternion rotation = Quaternion.Euler(Rotation_X, Rotation_Y, 0);
 
-        //if (isFPS)
-        //{
-        //    distance = Mathf.Lerp(distance, 0, Time.deltaTime * LerpSpeed);
+        // ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½Ê’u
+        Vector3 position = _target.position - rotation * new Vector3(0, 0, distance);
 
-        //    Vector3 fpsPosition = _target.position;
-        //    _camera.transform.position = fpsPosition;
-        //    _camera.transform.rotation = rotation; // LookAt‚Å‚Í‚È‚­‰ñ“]‚ğ’¼Úİ’è
-        //}
-        //else
-        //{
-            // TPS‹“_
+        // ï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Z
+        Vector3 targetPosition = _target.position;
+        targetPosition.y += HeightOffset;
 
-            distance = Mathf.Lerp(distance, distanceOffset, Time.deltaTime * LerpSpeed);
+        RaycastHit hit;
+        Vector3 dir = position - targetPosition;
+        float dist = dir.magnitude;
+        if (Physics.SphereCast(targetPosition, CameraRadius, dir.normalized, out hit, dist,
+                Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore))
+        {
+            position = hit.point - dir.normalized * 0.1f;
+        }
 
-            // ƒJƒƒ‰ˆÊ’u
-            Vector3 position = _target.position - rotation * new Vector3(0, 0, distance);
-
-            // ’‹“_‚Ì‚‚³‚ğ‰ÁZ
-            Vector3 targetPosition = _target.position;
-            targetPosition.y += HeightOffset;
-
-            RaycastHit hit;
-            Vector3 dir = position - targetPosition;
-            float dist = dir.magnitude;
-            if(Physics.SphereCast(targetPosition,CameraRadius,dir.normalized,out hit,dist))
-            {
-                position = hit.point - dir.normalized * 0.1f;
-            }
-
-            _camera.transform.position = position;
-            _camera.transform.LookAt(targetPosition);
-        //}
+        _camera.transform.position = position;
+        _camera.transform.LookAt(targetPosition);
     }
 }
