@@ -20,9 +20,11 @@ public class NavigationArrow : MonoBehaviour
         restart_timer += Time.deltaTime;
         if (restart_timer >= restart_delay && player_contoroller.IsDragging())
         {
+            restart_timer = 0;
+            
             Destroy(navigation_trail, 3.0f);
+            
             navigation_trail = Instantiate(navigation_trail_prefab);
-            restart_timer = restart_timer - restart_delay;
             navigation_trail.transform.position = player_contoroller.transform.position;
             navigation_trail.GetComponent<Rigidbody>().AddForce(player_contoroller.GetForce());
         }
