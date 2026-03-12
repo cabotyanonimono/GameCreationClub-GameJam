@@ -63,9 +63,9 @@ public class CameraController : MonoBehaviour
         if (Physics.SphereCast(targetPosition, CameraRadius, dir.normalized, out hit, dist,
                 Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore))
         {
-            position = hit.point - dir.normalized * 0.1f;
+            position = hit.point - dir.normalized * 0.2f;
         }
-
+        
         _camera.transform.position = position;
         _camera.transform.LookAt(targetPosition);
     }

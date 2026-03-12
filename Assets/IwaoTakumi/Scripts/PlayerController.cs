@@ -39,6 +39,7 @@ public class PlayerContoroller : MonoBehaviour
         if (IsDragging())
         {
             dragPower -= mouseDelta.y;
+            Mathf.Max(dragPower, 0.0f);
         }
 
         // �}�E�X������
@@ -61,7 +62,7 @@ public class PlayerContoroller : MonoBehaviour
 
         if (dragPower > 0)
         {
-            dragPower = Mathf.Max(dragPower, max_speed);
+            dragPower = Mathf.Min(dragPower, max_speed);
             return direction * dragPower * power;
         }
 
