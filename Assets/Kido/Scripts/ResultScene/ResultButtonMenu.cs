@@ -9,14 +9,13 @@ public class ResultButtonMenu : MonoBehaviour
         ScoreManager.Instance.Initialize();
 
         SceneManager.LoadScene("TitleScene");
-
     }
 
     public void PushRestart()
     {
         ScoreManager.Instance.Initialize();
 
-        //ƒQ[ƒ€ƒV[ƒ“‚É”ò‚Ô
+        SceneManager.LoadScene("GameScene");
     }
 
 }
