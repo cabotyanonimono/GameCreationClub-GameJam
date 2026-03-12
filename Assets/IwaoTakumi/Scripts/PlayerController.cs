@@ -37,7 +37,7 @@ public class PlayerContoroller : MonoBehaviour
     {
         Vector2 mouseDelta = Mouse.current.delta.ReadValue();
 
-        if(Mouse.current.leftButton.isPressed)
+        if(IsDragging())
         {
             dragPower -= mouseDelta.y;
         }
@@ -66,5 +66,10 @@ public class PlayerContoroller : MonoBehaviour
         }
 
         return Vector3.zero;
+    }
+
+    public bool IsDragging()
+    {
+        return Mouse.current.leftButton.isPressed && rb.linearVelocity.magnitude <= 0.2f;
     }
 }
