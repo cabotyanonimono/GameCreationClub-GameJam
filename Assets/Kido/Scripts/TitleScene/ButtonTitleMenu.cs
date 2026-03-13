@@ -5,7 +5,7 @@ public class ButtonTitleMenu : MonoBehaviour
 {
     public void PushStartButton()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("GameScene");
     }
 
     public void PushQuitButton()
