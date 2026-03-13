@@ -26,7 +26,7 @@ public sealed class ScoreManager
     public void StartTimeMeasure()
     {
 
-        //ŠÔ‚Ì‰Šú‰»(Œ»İŠÔ‚ğ‘ã“ü‚·‚é)‚È‚Ç
+        //ï¿½ï¿½ï¿½Ô‚Ìï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½İï¿½ï¿½Ô‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)ï¿½È‚ï¿½
         startTime = DateTime.Now;
 
     }
@@ -34,7 +34,7 @@ public sealed class ScoreManager
     public void StopTimeMeasure()
     {
 
-        //I—¹ŠÔ‚ğæ“¾‚µAƒNƒŠƒA‚ÉŠ|‚©‚Á‚½ŠÔ‚ğ‹‚ß‚é
+        //ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½Ô‚ï¿½ï¿½æ“¾ï¿½ï¿½ï¿½Aï¿½Nï¿½ï¿½ï¿½Aï¿½ÉŠ|ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô‚ï¿½ï¿½ï¿½ï¿½ß‚ï¿½
         elapseTime = (float)(DateTime.Now - startTime).TotalSeconds;
 
     }
@@ -55,8 +55,8 @@ public sealed class ScoreManager
 
     public void OnGetScoreItem()
     {
-        //ƒXƒRƒAƒAƒCƒeƒ€‚ğæ“¾‚µ‚½‚Ìˆ—
-        //Šî‘bƒXƒRƒA•Ï“®‚ğs‚¤
+        //ï¿½Xï¿½Rï¿½Aï¿½Aï¿½Cï¿½eï¿½ï¿½ï¿½ï¿½ï¿½æ“¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½
+        //ï¿½ï¿½bï¿½Xï¿½Rï¿½Aï¿½Ï“ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½
 
         score += addScoreValue;
 

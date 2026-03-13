@@ -12,8 +12,14 @@ EditorBuildSettings:
     path: Assets/Scenes/TitleScene.unity
     guid: c06c26f75af81de4792b337aca445f84
   - enabled: 1
-    path: Assets/Scenes/Demo Map.unity
+    path: Assets/Scenes/GameScene.unity
     guid: 5d29c20dc3db9a948bd91c3ce8a92b90
+  - enabled: 1
+    path: Assets/Scenes/ResultScene.unity
+    guid: 8a91f59edf5d7864198f4a9a8f18fc2e
+  - enabled: 1
+    path: Assets/Scenes/TitleBackground.unity
+    guid: 85184f3ac6081eb42939baf43494fb74
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

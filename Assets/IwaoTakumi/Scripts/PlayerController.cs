@@ -2,6 +2,7 @@ using Unity.Mathematics.Geometry;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
+using UnityEngine.Serialization;
 
 public class PlayerContoroller : MonoBehaviour
 {
@@ -24,6 +25,10 @@ public class PlayerContoroller : MonoBehaviour
     [SerializeField] public bool isStop;
 
     [SerializeField] public Vector3 check_point;
+
+    [SerializeField] public AudioSource audio_source;
+
+    [FormerlySerializedAs("fall_count")] public int shot_count;
 
     Rigidbody rb;
 
@@ -57,6 +62,8 @@ public class PlayerContoroller : MonoBehaviour
 
             if (dragPower > 0)
             {
+                ++shot_count;
+                audio_source.PlayOneShot(audio_source.clip);
                 rb.AddForce(direction * dragPower * power);
             }
 
