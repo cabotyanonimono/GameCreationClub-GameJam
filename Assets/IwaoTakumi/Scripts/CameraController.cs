@@ -21,6 +21,10 @@ public class CameraController : MonoBehaviour
 
     [SerializeField] private float CameraRadius = 0.5f; // �J�����̔��a
 
+    [SerializeField] private PlayerContoroller player_controller;
+    
+    
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -37,20 +41,15 @@ public class CameraController : MonoBehaviour
         float mouseY = mouseDelta.y * MouseSensitivity * Time.deltaTime;
 
         // ���N���b�N���͏㉺��]���Œ�
-        if (!isPressLeftButton)
+        if (!player_controller.is_lock || Keyboard.current.spaceKey.isPressed)
         {
             Rotation_X -= mouseY; // �㉺
             Rotation_X = Mathf.Clamp(Rotation_X, -50f, 80f);
+            Rotation_Y += mouseX; // ���E
         }
-
-        Rotation_Y += mouseX; // ���E
-
-        Rotation_X = Mathf.Clamp(Rotation_X, -50f, 80f);
-
-        // ��]
+        
         Quaternion rotation = Quaternion.Euler(Rotation_X, Rotation_Y, 0);
 
-        // �J�����ʒu
         Vector3 position = _target.position - rotation * new Vector3(0, 0, distance);
 
         // �����_�̍��������Z

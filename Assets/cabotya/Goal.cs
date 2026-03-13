@@ -51,8 +51,5 @@ public class Goal : MonoBehaviour
             return;
         
         timer += Time.deltaTime;
-
-        if (timer >= change_scene_delay)
-            SceneManager.LoadScene("ResultScene");
     }
 }

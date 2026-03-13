@@ -30,6 +30,10 @@ public class PlayerContoroller : MonoBehaviour
 
     [FormerlySerializedAs("fall_count")] public int shot_count;
 
+    public Vector3 direction;
+
+    public bool is_lock;
+
     Rigidbody rb;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -44,29 +48,39 @@ public class PlayerContoroller : MonoBehaviour
     {
         if (transform.position.y <= -10.0f)
         {
+            rb.linearVelocity = Vector3.zero;
             transform.position = check_point;
         }
         
         Vector2 mouseDelta = Mouse.current.delta.ReadValue();
+
+        if (Mouse.current.leftButton.wasPressedThisFrame && rb.linearVelocity.magnitude <= movement_threshold)
+        {
+            is_lock = true;
+        }
         
         if (IsDragging())
         {
             dragPower -= mouseDelta.y;
-            Mathf.Max(dragPower, 0.0f);
         }
-
+        
+        if (!is_lock)
+        {
+            direction = _camera.forward;
+        }
+        
         // �}�E�X������
         if (Mouse.current.leftButton.wasReleasedThisFrame)
         {
-            Vector3 direction = _camera.forward;
-
+            dragPower = Mathf.Max(dragPower, 0.0f);
+            dragPower = Mathf.Min(dragPower, max_speed);
             if (dragPower > 0)
             {
                 ++shot_count;
                 audio_source.PlayOneShot(audio_source.clip);
                 rb.AddForce(direction * dragPower * power);
             }
-
+            is_lock = false;
             dragPower = 0;
         }
     }
