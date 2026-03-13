@@ -354,7 +354,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 712891216}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce1747ce818e8f44dbbd0ad8ba5c2f9c, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f7dc59e4ec2bdb4aaf3a0f5ed48ea33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Button
 --- !u!1 &812702626
@@ -500,7 +500,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 812702626}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce1747ce818e8f44dbbd0ad8ba5c2f9c, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f7dc59e4ec2bdb4aaf3a0f5ed48ea33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonTitle
 --- !u!1 &916572292
@@ -537,8 +537,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 489, y: -218.00067}
-  m_SizeDelta: {x: 978, y: 435.67004}
+  m_AnchoredPosition: {x: 550, y: -253.58}
+  m_SizeDelta: {x: 1100, y: 506.83}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &916572294
 MonoBehaviour:
