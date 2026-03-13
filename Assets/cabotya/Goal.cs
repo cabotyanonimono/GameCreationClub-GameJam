@@ -20,6 +20,8 @@ public class Goal : MonoBehaviour
         
         is_goal = true;
         particle_system.Play();
+        
+        Destroy(GetComponent<MeshRenderer>());
     }
 
     private void Update()
