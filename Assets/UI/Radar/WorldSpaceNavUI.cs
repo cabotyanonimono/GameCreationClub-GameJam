@@ -19,6 +19,8 @@ public class WorldSpaceNavUI : MonoBehaviour
     [Header("Settings")]
     [Tooltip("プレイヤーの足元からどれくらい高い位置にUIを出すか")]
     public float heightOffset = 2.0f;
+    [Tooltip("矢印の初期向きのズレを調整（0で上が正解ならそのまま）")] 
+    public float rotationOffset = 0f; 
 
     private RectTransform rect;
     private CanvasGroup canvasGroup; // 表示・非表示の制御用
@@ -60,19 +62,19 @@ public class WorldSpaceNavUI : MonoBehaviour
         dir.y = 0;
 
         // カメラの前方方向を水平ベクトルとして取得 
-        Vector3 camForward = cam.transform.forward; 
+        Vector3 camForward = cam.transform.forward;
         camForward.y = 0; // 水平方向のみで比較するため 
 
         // カメラの視線を基準に、ゴール方向への角度（-180～180）を算出 
         float angle = Vector3.SignedAngle
         (
-            camForward, 
+            camForward,
             dir.normalized,
             Vector3.up
         );
 
         //  5. UIの回転に反映
         // Z軸を回転（UnityのUIは左回りが正なので、計算されたangleを反転して適用）
-        rect.rotation = Quaternion.Euler(0, 0, -angle);
+        rect.localRotation = Quaternion.Euler(0, 0, -angle + rotationOffset); 
     }
 }
