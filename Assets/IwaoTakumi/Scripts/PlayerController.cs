@@ -23,22 +23,31 @@ public class PlayerContoroller : MonoBehaviour
 
     [SerializeField] public bool isStop;
 
+    [SerializeField] public Vector3 check_point;
+
     Rigidbody rb;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        check_point = transform.position;
         rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (transform.position.y <= -10.0f)
+        {
+            transform.position = check_point;
+        }
+        
         Vector2 mouseDelta = Mouse.current.delta.ReadValue();
-
+        
         if (IsDragging())
         {
             dragPower -= mouseDelta.y;
+            Mathf.Max(dragPower, 0.0f);
         }
 
         // �}�E�X������
@@ -61,7 +70,7 @@ public class PlayerContoroller : MonoBehaviour
 
         if (dragPower > 0)
         {
-            dragPower = Mathf.Max(dragPower, max_speed);
+            dragPower = Mathf.Min(dragPower, max_speed);
             return direction * dragPower * power;
         }
 
