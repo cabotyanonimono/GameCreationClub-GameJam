@@ -1188,6 +1188,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4414600253444333320, guid: 31452322714d2494d8edd50f507c751a, type: 3}
   m_PrefabInstance: {fileID: 77126243}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &82538316 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3792913301347055306, guid: f409399c7d74d1b4e9fc2b77027ae510, type: 3}
+  m_PrefabInstance: {fileID: 132414481}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &83119570
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1814,6 +1819,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 601403239507270056, guid: f409399c7d74d1b4e9fc2b77027ae510, type: 3}
+      propertyPath: goal_navi
+      value: 
+      objectReference: {fileID: 1809526809}
+    - target: {fileID: 601403239507270056, guid: f409399c7d74d1b4e9fc2b77027ae510, type: 3}
+      propertyPath: next_goal
+      value: 
+      objectReference: {fileID: 1014143367}
     - target: {fileID: 601403239507270056, guid: f409399c7d74d1b4e9fc2b77027ae510, type: 3}
       propertyPath: player_controller
       value: 
@@ -6208,6 +6221,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!4 &416447106 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3792913301347055306, guid: f409399c7d74d1b4e9fc2b77027ae510, type: 3}
+  m_PrefabInstance: {fileID: 1514265573}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &417355827
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15512,6 +15530,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 331339058494320806, guid: e80d0380ecc96af42b77e3ca3a7faf8f, type: 3}
   m_PrefabInstance: {fileID: 1008698095}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1014143367 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3792913301347055306, guid: f409399c7d74d1b4e9fc2b77027ae510, type: 3}
+  m_PrefabInstance: {fileID: 1810005117}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1015066884
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24251,6 +24274,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 601403239507270056, guid: f409399c7d74d1b4e9fc2b77027ae510, type: 3}
+      propertyPath: goal_navi
+      value: 
+      objectReference: {fileID: 1809526809}
+    - target: {fileID: 601403239507270056, guid: f409399c7d74d1b4e9fc2b77027ae510, type: 3}
+      propertyPath: next_goal
+      value: 
+      objectReference: {fileID: 318224805}
+    - target: {fileID: 601403239507270056, guid: f409399c7d74d1b4e9fc2b77027ae510, type: 3}
       propertyPath: player_controller
       value: 
       objectReference: {fileID: 1687441822}
@@ -28549,7 +28580,7 @@ PrefabInstance:
     - target: {fileID: 6165247710364940752, guid: f4f94f0043707f94d81e9d1c12e800b2, type: 3}
       propertyPath: goal
       value: 
-      objectReference: {fileID: 318224805}
+      objectReference: {fileID: 82538316}
     - target: {fileID: 6165247710364940752, guid: f4f94f0043707f94d81e9d1c12e800b2, type: 3}
       propertyPath: player
       value: 
@@ -30010,6 +30041,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3598164536646371208, guid: 3f8fbe2b2e0fcda49bdf4860e8efd375, type: 3}
   m_PrefabInstance: {fileID: 1798142242}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1809526809 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6165247710364940752, guid: f4f94f0043707f94d81e9d1c12e800b2, type: 3}
+  m_PrefabInstance: {fileID: 1696337332}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 998a691136db5614bb88f1f7f1943188, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GoalNavigation
 --- !u!1001 &1810005117
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30018,6 +30060,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 601403239507270056, guid: f409399c7d74d1b4e9fc2b77027ae510, type: 3}
+      propertyPath: goal_navi
+      value: 
+      objectReference: {fileID: 1809526809}
+    - target: {fileID: 601403239507270056, guid: f409399c7d74d1b4e9fc2b77027ae510, type: 3}
+      propertyPath: next_goal
+      value: 
+      objectReference: {fileID: 416447106}
     - target: {fileID: 601403239507270056, guid: f409399c7d74d1b4e9fc2b77027ae510, type: 3}
       propertyPath: player_controller
       value: 
@@ -35812,6 +35862,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3521633245814873954, guid: 0f4eb5e146fbd5b4a98d293c59977639, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: ef4bfd894cf52fc49a77f790ee20bb2a, type: 3}
     - target: {fileID: 6511371203878334197, guid: 0f4eb5e146fbd5b4a98d293c59977639, type: 3}
       propertyPath: m_TagString
       value: player
