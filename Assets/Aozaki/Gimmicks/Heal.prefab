@@ -5152,9 +5152,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HpHealItem
   healAmount: 3
   clampMaxHp: 0
+  searchInParent: 1
+  seClip: {fileID: 8300000, guid: 6dacee8b9308b974aaff24b5be6dc250, type: 3}
+  seVolume: 1
+  playSeAtItemPosition: 0
+  vfxPrefab: {fileID: 0}
+  vfxScale: 1
+  spawnVfxAtItemPosition: 0
+  vfxAutoDestroySeconds: 2
   destroyOnPickup: 1
   destroyDelay: 0
-  searchInParent: 1
+  disableVisualAndColliderOnPickup: 1
 --- !u!1 &7944140662804158037
 GameObject:
   m_ObjectHideFlags: 0
