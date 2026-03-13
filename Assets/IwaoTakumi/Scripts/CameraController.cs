@@ -40,12 +40,12 @@ public class CameraController : MonoBehaviour
         if (!isPressLeftButton)
         {
             Rotation_X -= mouseY; // �㉺
-            Rotation_X = Mathf.Clamp(Rotation_X, -30f, 60f);
+            Rotation_X = Mathf.Clamp(Rotation_X, -50f, 80f);
         }
 
         Rotation_Y += mouseX; // ���E
 
-        Rotation_X = Mathf.Clamp(Rotation_X, -30f, 60f);
+        Rotation_X = Mathf.Clamp(Rotation_X, -50f, 80f);
 
         // ��]
         Quaternion rotation = Quaternion.Euler(Rotation_X, Rotation_Y, 0);
